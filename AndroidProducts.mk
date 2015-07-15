@@ -14,4 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo aosp_awifi-userdebug
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/aosp_awifi.mk

@@ -15,23 +15,14 @@
 #
 
 # Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/lge/awifi/device.mk)
 $(call inherit-product-if-exists, vendor/lge/awifi/awifi-vendor.mk)
 
-# Inherit some common CM stuff
-$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
-
-# Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := awifi
-PRODUCT_NAME := cm_awifi
+PRODUCT_NAME := aosp_awifi
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG-V500
 PRODUCT_MANUFACTURER := LGE
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=awifi_open_esa \
-    BUILD_FINGERPRINT=lge/awifi_open_esa/awifi:5.0.2/LRX22G/152531444fe34:user/release-keys \
-    PRIVATE_BUILD_DESC="awifi_open_esa-user 5.0.2 LRX22G 152531444fe34 release-keys"

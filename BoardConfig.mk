@@ -44,12 +44,8 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/awifi/bluetooth
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_SHOW_PERCENTAGE := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/lge/awifi/charger/images
-BOARD_HEALTHD_CUSTOM_CHARGER := device/lge/awifi/charger/healthd_mode_charger.cpp
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
-COMMON_GLOBAL_CFLAGS += -DRECOVERY_FONT='"roboto_15x24.h"'
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
@@ -73,13 +69,10 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
-# Hardware tunables
-BOARD_HARDWARE_CLASS := device/lge/awifi/cmhw/
-
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/lge/awifi
 TARGET_KERNEL_CONFIG := cyanogenmod_awifi_defconfig
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 lpj=67677 androidboot.hardware=awifi vmalloc=400M
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 lpj=67677 androidboot.hardware=awifi vmalloc=400M androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
@@ -88,7 +81,6 @@ BOARD_CUSTOM_BOOTIMG := true
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4         := true
-TARGET_USERIMAGES_USE_F2FS         := true
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 25165824    # 24M
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824    # 24M
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 2248146944  # 2144M
@@ -100,17 +92,9 @@ BOARD_FLASH_BLOCK_SIZE             := 131072      # (BOARD_KERNEL_PAGESIZE * 64)
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno320
 
-# Power HAL
-TARGET_POWERHAL_VARIANT := qcom
-
 # Recovery
 TARGET_RECOVERY_FSTAB := device/lge/awifi/rootdir/fstab.awifi
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-
-# SELinux policies
-include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += device/lge/awifi/sepolicy
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
