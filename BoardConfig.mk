@@ -76,6 +76,9 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/lge/awifi/cmhw/
 
+# Include
+TARGET_SPECIFIC_HEADER_PATH := device/lge/awifi/include
+
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/lge/awifi
 TARGET_KERNEL_CONFIG := cyanogenmod_awifi_defconfig
