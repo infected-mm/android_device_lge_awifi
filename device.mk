@@ -55,6 +55,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr \
     ro.qualcomm.bt.hci_transport=smd
 
+# CABL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.cabl=0
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8960 \
@@ -62,7 +66,8 @@ PRODUCT_PACKAGES += \
 
 # Charger
 PRODUCT_PACKAGES += \
-    charger_res_images
+    charger_res_images \
+    libhealthd.awifi
 
 # Configure libhwui
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -84,14 +89,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
-
-# Filesystem
-PRODUCT_PACKAGES += \
-    setup_fs
-
-# GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -121,6 +118,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
@@ -141,9 +139,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
     libOmxCore \
     libOmxVdec \
     libOmxVenc \
@@ -166,7 +161,7 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sensors.wl_dis=true \
-    ro.qc.sdk.sensors.gestures=true
+    ro.qualcomm.sensors.smd=true
 
 # Thermal
 PRODUCT_COPY_FILES += \
