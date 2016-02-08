@@ -161,7 +161,7 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sensors.wl_dis=true \
-    ro.qualcomm.sensors.smd=true
+    ro.qc.sdk.sensors.gestures=true
 
 # Thermal
 PRODUCT_COPY_FILES += \
